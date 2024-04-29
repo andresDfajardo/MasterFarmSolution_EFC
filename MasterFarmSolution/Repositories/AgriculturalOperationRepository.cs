@@ -1,4 +1,5 @@
 ﻿using MasterFarmSolution.Entities;
+using Microsoft.EntityFrameworkCore;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MasterFarmSolution.Repositories
@@ -33,24 +34,29 @@ namespace MasterFarmSolution.Repositories
             return newAgriculturalOperation;
         }
 
-        public Task<AgriculturalOperation> DeleteAgriculturalOperation(AgriculturalOperation agriculturalOperation)
+        public async Task<AgriculturalOperation> DeleteAgriculturalOperation(AgriculturalOperation agriculturalOperation)
         {
-            throw new NotImplementedException();
+            agriculturalOperation.is_active = false;
+            _db.AgriculturalOperations.Update(agriculturalOperation);
+            await _db.SaveChangesAsync();
+            return agriculturalOperation;
         }
 
-        public Task<AgriculturalOperation> GetAgriculturalOperation(int id)
+        public async Task<AgriculturalOperation> GetAgriculturalOperation(int id)
         {
-            throw new NotImplementedException();
+            return await _db.AgriculturalOperations.FirstOrDefaultAsync(a => a.id == id);
         }
 
-        public Task<List<AgriculturalOperation>> GetAll()
+        public async Task<List<AgriculturalOperation>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _db.AgriculturalOperations.ToListAsync();
         }
 
-        public Task<AgriculturalOperation> UpdateAgriculturalOperation(AgriculturalOperation agriculturalOperation)
+        public async Task<AgriculturalOperation> UpdateAgriculturalOperation(AgriculturalOperation agriculturalOperation)
         {
-            throw new NotImplementedException();
+            _db.AgriculturalOperations.Update(agriculturalOperation);
+            await _db.SaveChangesAsync();
+            return agriculturalOperation;
         }
     }
 }

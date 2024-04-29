@@ -7,7 +7,7 @@ namespace MasterFarmSolution.Entities
         public int id { get; set; }
         [Required]
         public int cropId { get; set; }
-        public Crop Id { get; set; }
+        public Crop crop { get; set; }
         [Required]
         public string dateOperation { get; set; }
         [Required]

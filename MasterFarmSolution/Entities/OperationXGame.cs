@@ -18,6 +18,6 @@ namespace MasterFarmSolution.Entities
         public DateTime dateTimeOperationXGame { get; set; }
 
         [Required]
-        public bool isActive { get; set; }
+        public bool is_active { get; set; }
     }
 }
