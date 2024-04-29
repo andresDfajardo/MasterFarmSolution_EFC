@@ -10,6 +10,7 @@ namespace MasterFarmSolution.Repositories
         Task<User> UpdateUser(User user);
         Task<User> GetUser(int id);
         Task<User> DeleteUser(User user);
+        Task<User> UpdateProduct(User newUser);
     }
     public class UserRepository : IUserRepository
     {
