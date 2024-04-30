@@ -10,7 +10,6 @@ namespace MasterFarmSolution.Repositories
         Task<User> UpdateUser(User user);
         Task<User> GetUser(int id);
         Task<User> DeleteUser(User user);
-        Task<User> UpdateProduct(User newUser);
     }
     public class UserRepository : IUserRepository
     {
@@ -50,7 +49,6 @@ namespace MasterFarmSolution.Repositories
         public async Task<User> GetUser(int id)
         {
             return await _db.Users.FirstOrDefaultAsync(p => p.id == id);
-
         }
 
         public async Task<User> UpdateUser(User user)

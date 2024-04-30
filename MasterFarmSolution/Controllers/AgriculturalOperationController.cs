@@ -23,12 +23,12 @@ namespace MasterFarmSolution.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<AgriculturalOperation>> GetAgriculturalOperation(int id)
         {
-            var AgriculturalOperation = await _agriculturalOperationService.GetAgriculturalOperation(id);
-            if (AgriculturalOperation == null)
+            var agriculturalOperation = await _agriculturalOperationService.GetAgriculturalOperation(id);
+            if (agriculturalOperation == null)
             {
                 return BadRequest("Agricultural Operation not found");
             }
-            return Ok(AgriculturalOperation);
+            return Ok(agriculturalOperation);
         }
         [HttpPost("{cropId}/{dateOperation}/{operationTypeId}/{description}")]
         public async Task<ActionResult<AgriculturalOperation>> CreateAgriculturalOperation(int cropId, string dateOperation, int operationTypeId, string description)

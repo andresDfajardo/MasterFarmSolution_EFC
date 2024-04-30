@@ -66,7 +66,7 @@ namespace MasterFarmSolution.Services
                 {
                     newUser.farmerId = (int)farmerId;
                 }
-                return await _userRepository.UpdateProduct(newUser);
+                return await _userRepository.UpdateUser(newUser);
             }
             else
                 return null;
