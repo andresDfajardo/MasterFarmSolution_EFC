@@ -29,7 +29,7 @@ namespace MasterFarmSolution.Controllers
             }
             return Ok(plotType);
         }
-        [HttpPost("{number}/{farmId}/{plotTypeId}")]
+        [HttpPost("{plotType}")]
         public async Task<ActionResult<PlotType>> CreatePlotType(string plotType)
         {
             var newPlotType = await _plotTypeService.CreatePlotType(plotType);

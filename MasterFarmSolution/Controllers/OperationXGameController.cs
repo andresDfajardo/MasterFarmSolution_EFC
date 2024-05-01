@@ -29,7 +29,7 @@ namespace MasterFarmSolution.Controllers
             }
             return Ok(operationXGame);
         }
-        [HttpPost("{dateLastConnection}")]
+        [HttpPost("{agriculturalOperationId}/{gameId}/{dateTimeOperationXGame}")]
         public async Task<ActionResult<OperationXGame>> CreateOperationXGame(int agriculturalOperationId, int gameId, DateTime dateTimeOperationXGame)
         {
             var newOperationXGame = await _operationXGameService.CreateOperationXGame(agriculturalOperationId, gameId, dateTimeOperationXGame);
