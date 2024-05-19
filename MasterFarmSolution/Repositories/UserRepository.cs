@@ -10,6 +10,7 @@ namespace MasterFarmSolution.Repositories
         Task<User> UpdateUser(User user);
         Task<User> GetUser(int id);
         Task<User> DeleteUser(User user);
+        Task<User> Authenticate(string username, string password);
     }
     public class UserRepository : IUserRepository
     {
@@ -55,6 +56,17 @@ namespace MasterFarmSolution.Repositories
         {
             _db.Users.Update(user);
             await _db.SaveChangesAsync();
+            return user;
+        }
+        public async Task<User> Authenticate(string username, string password)
+        {
+            var user = await _db.Users.SingleOrDefaultAsync(x => x.userName == username);
+
+
+            if (user == null || user.password != password)
+                return null;
+
+
             return user;
         }
     }

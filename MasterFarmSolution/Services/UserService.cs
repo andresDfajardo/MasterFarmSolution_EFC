@@ -10,6 +10,7 @@ namespace MasterFarmSolution.Services
         Task<User> UpdateUser(int id, string? userName = null, string? password = null, int? farmerId = null);
         Task<User> GetUser(int id);
         Task<User> DeleteUser(int id);
+        Task<User> Authenticate(string username, string password);
     }
     public class UserService : IUserService
     {
@@ -70,6 +71,10 @@ namespace MasterFarmSolution.Services
             }
             else
                 return null;
+        }
+        public async Task<User> Authenticate(string username, string password)
+        {
+            return await _userRepository.Authenticate(username, password);
         }
     }
 }

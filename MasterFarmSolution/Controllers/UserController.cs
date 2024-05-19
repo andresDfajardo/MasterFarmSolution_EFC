@@ -35,6 +35,18 @@ namespace MasterFarmSolution.Controllers
             var newUser = await _userService.CreateUser(userName, password, farmerId);
             return CreatedAtAction(nameof(GetUser), new { newUser.id }, newUser);
         }
+        [HttpPost("authenticate")]
+        public async Task<ActionResult<User>> Authenticate([FromBody] User user)
+        {
+            var authenticatedUser = await _userService.Authenticate(user.userName, user.password);
+
+            if (authenticatedUser == null)
+            {
+                return BadRequest(new { message = "Nombre de usuario o contraseña incorrectos" });
+            }
+
+            return Ok(authenticatedUser);
+        }
         [HttpPut("{id}")]
         public async Task<ActionResult<User>> UpdateUser(int id, string? userName = null, string? password = null, int? farmerId = null)
         {
