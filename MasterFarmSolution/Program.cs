@@ -45,6 +45,7 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductTypeService, ProductTypeService>();
 builder.Services.AddScoped<IUserService, UserService>();
 #endregion
+builder.Services.AddCors();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
