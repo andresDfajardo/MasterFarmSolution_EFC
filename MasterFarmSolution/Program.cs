@@ -44,8 +44,8 @@ builder.Services.AddScoped<IPlotTypeService, PlotTypeService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductTypeService, ProductTypeService>();
 builder.Services.AddScoped<IUserService, UserService>();
-#endregion
 builder.Services.AddCors();
+#endregion
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
